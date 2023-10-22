@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -64,7 +65,23 @@ class _DashBoardState extends State<DashBoard> {
                       height: constraints.maxHeight,
                       child: VideoPlayer(_controller!),
                     )
-                  : Container()
+                  : Container(),
+              const Positioned.fill(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.menu),
+                          CircleAvatar(child: Icon(Icons.add))
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           );
         },
