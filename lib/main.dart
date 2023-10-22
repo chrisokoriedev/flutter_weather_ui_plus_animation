@@ -54,6 +54,7 @@ class _DashBoardState extends State<DashBoard> {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme;
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -66,18 +67,69 @@ class _DashBoardState extends State<DashBoard> {
                       child: VideoPlayer(_controller!),
                     )
                   : Container(),
-              const Positioned.fill(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              Positioned.fill(
+                child: Container(
+                  color: Colors.black45,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Icon(Icons.menu),
                           CircleAvatar(child: Icon(Icons.add))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 60),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Abeokuta South',
+                              style: textStyle.displayMedium!.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white),
+                            ),
+                            Text(
+                              'Sun, October 22 4:00 PM',
+                              style: textStyle.titleLarge!.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
+                            const SizedBox(height: 70),
+                            Center(
+                              child: Column(
+                                children: [
+                                  const FlutterLogo(size: 120),
+                                  const SizedBox(height: 30),
+                                  Text(
+                                    'Mostly Cloudy',
+                                    style: textStyle.titleLarge!.copyWith(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,height: 1.6),
+                                  ),
+                                  Text(
+                                    '84°/73°',
+                                    style: textStyle.titleLarge!.copyWith(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,height: 1.6),
+                                  ),
+                                  Text(
+                                    'Feels like 90°',
+                                    style: textStyle.titleLarge!.copyWith(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
